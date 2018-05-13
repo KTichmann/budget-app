@@ -1,0 +1,79 @@
+.filterAndSort{
+  width: 25%;
+  border-radius: 5px;
+  margin-left: 1.5rem;
+  position: fixed;
+  top: 13vh;
+  background-color: $contBack;
+  height: 87vh;
+  .showAll{
+    font-size: 2rem;
+    margin: 1rem;
+    padding: 1rem 10rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-55%);
+  }
+  .filterTag{
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  input{
+    margin-top: 10rem;
+  }
+  .searchBoxDescription{
+    width: 90%;
+    margin-left: 5%;
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+  .searchBoxButton{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .DateInput_input{
+    margin: 1rem .5rem;
+    margin-top: 5rem !important;
+  }
+  .DateRangePickerInput_arrow{
+    margin-top: 4rem;
+    padding-left: .3rem;
+  }
+  .dateRangeButton{
+    margin-top: 1rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+  }
+  .sort{
+    position: relative;
+    top: 5%;
+    select{
+      font-size: 2rem;
+      margin: .5rem;
+    }
+    input{
+      margin: .5rem;
+    }
+    label{
+      color: white;
+      font-size: 1.3rem;
+    }
+    button{
+      position: relative;
+      padding: .5rem 2rem;
+      margin-top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+.DateRangePicker_picker{
+  top: -10rem !important;
+  z-index: 100;
+}

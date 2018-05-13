@@ -1,0 +1,32 @@
+.button{
+  background-color: lighten($contBack, 20%);
+  box-shadow: .3rem .3rem 1rem $shadowColor;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+  // margin: 1rem;
+  padding: .7rem .5rem;
+  font-weight: 500;
+
+  &:hover{
+    cursor: pointer;
+  }
+  &:focus{
+    outline: 0;
+  }
+  &:active{
+    box-shadow: none;
+    transform: translate(3%, 3%)
+  }
+}
+.button--large{
+  position: absolute;
+  right: 3%;
+  top: 1.5rem;
+  font-size: 2.5rem;
+  margin-top: .3rem;
+  margin-bottom: 2rem;
+  padding: 0 3rem;
+  // margin: 2rem 3rem;
+}

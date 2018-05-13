@@ -1,0 +1,58 @@
+.inputField{
+  &__main {
+    padding: 1.5rem;
+    padding-bottom: 1.5rem;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: 2;
+  }
+  input{
+    font-size: 1.3rem;
+    box-shadow: 1px 1px 4px $shadowColor;
+    // margin: 2rem .4rem;
+    border: 3px lighten($contBack, 30%) solid;
+    border-radius: 3px;
+    padding: 8px;
+    background-color: lighten($contBack, 70%);
+    text-align: center;
+    &:focus{
+        outline: none;
+        border: 4px lighten($contBack, 20%) solid;
+    }
+  }
+}
+.inputField__main input{
+  width: 30%;
+  margin-top: 0;
+}
+
+.DateRangePickerInput, .DateInput{
+  background: $contBack;
+  border: 0px;
+}
+
+.DateRangePickerInput_arrow_svg{
+  margin-left: 8px;
+  fill: white;
+}
+
+#dateSelector{
+  border: none;
+}
+
+#amountInput{
+  width: 83px;
+}
+
+#dateInput{
+  width: 15%;
+}
+
+.inputField select{
+  font-size: 20px;
+  border-radius: 3px;
+  color: $contBack;
+  text-align: center;
+  background-color: lighten($contBack, 70%)
+}

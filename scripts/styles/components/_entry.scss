@@ -1,0 +1,66 @@
+.entry{
+  display: inline-block;
+  background-color: lighten($contBack, 50%);
+  width: 90%;
+  height: 70px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  box-shadow: 1px 1px 1px #222;
+  z-index: 1 !important;
+
+  button{
+    position: relative;
+    visibility:hidden;
+    font-size: 1.6rem;
+    border-radius: 20%;
+    bottom: 40px;
+    right: 30px;
+    background-color: darken(red, 20%);
+    float: right;
+  }
+
+  &:hover button{
+    visibility: visible;
+  }
+}
+
+.entry p{
+  float: left;
+  position: relative;
+  margin: 0px 2px;
+  padding: 0px 2px;
+  border-radius: 10px;
+}
+
+#tag{
+  font-size: $sm-size;
+  border: 1px white solid;
+  padding: 2px;
+  margin-top: 0px;
+  width: 100px;
+  text-align: center;
+  background-color: $contBack;
+  color: white;
+  clear: both;
+  left: 20px;
+  bottom: 8px;
+}
+#description{
+  padding-left: 15px;
+  left: 10px;
+  display: inline-block;
+  font-size: 25px;
+}
+#date{
+  margin-top: -8px;
+  margin-bottom: 0px;
+  top: 8px;
+  right: 25px;
+  float: right;
+}
+#price{
+  width: 150px;
+  float: right;
+  font-size: 30px;
+}
