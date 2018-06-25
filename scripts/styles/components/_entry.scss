@@ -3,6 +3,7 @@
   background-color: lighten($contBack, 50%);
   width: 90%;
   height: 70px;
+  margin-bottom: 10px;
   font-size: 1.6rem;
   font-weight: 700;
   font-family: sans-serif;
@@ -14,7 +15,7 @@
     visibility:hidden;
     font-size: 1.6rem;
     border-radius: 20%;
-    bottom: 40px;
+    bottom: 30px;
     right: 30px;
     background-color: darken(red, 20%);
     float: right;
