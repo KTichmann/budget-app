@@ -80519,6 +80519,10 @@ var _BarChartHandler = __webpack_require__(748);
 
 var _BarChartHandler2 = _interopRequireDefault(_BarChartHandler);
 
+var _Toggler = __webpack_require__(1066);
+
+var _Toggler2 = _interopRequireDefault(_Toggler);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80624,10 +80628,25 @@ var BudgetApp = function (_React$Component) {
         _react2.default.createElement(
           "div",
           { className: "filterAndSort" },
-          _react2.default.createElement(_FilterHandler2.default, { input: this.state.input, filterState: this.updateViewState }),
-          _react2.default.createElement(_SortHandler2.default, { updateViewState: this.updateViewState, view: this.state.view })
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Budget App"
+          ),
+          _react2.default.createElement(
+            "div",
+            { id: "filter" },
+            _react2.default.createElement(_Toggler2.default, { content: "Filter", id: "filter-button", id2: "filter" }),
+            _react2.default.createElement(_FilterHandler2.default, { input: this.state.input, filterState: this.updateViewState })
+          ),
+          _react2.default.createElement(
+            "div",
+            { id: "sort" },
+            _react2.default.createElement(_Toggler2.default, { content: "Sort", id: "sort-button", id2: "sort" }),
+            _react2.default.createElement(_SortHandler2.default, { updateViewState: this.updateViewState, view: this.state.view })
+          ),
+          _react2.default.createElement(_BarChartHandler2.default, { data: this.state.view })
         ),
-        _react2.default.createElement(_BarChartHandler2.default, { data: this.state.view }),
         _react2.default.createElement(_EntryHandler2.default, { view: this.state.view, removeInput: this.removeInputFromState }),
         _react2.default.createElement(_Total2.default, { inputArr: this.state.view })
       );
@@ -80748,27 +80767,31 @@ var Entry = function Entry(props) {
     ),
     _react2.default.createElement(
       "p",
-      { id: "price" },
-      "R",
-      props.price
-    ),
-    _react2.default.createElement(
-      "p",
       { id: "tag" },
       props.tag
     ),
     _react2.default.createElement(
       "p",
-      { id: "date" },
-      "Date: ",
-      props.date
+      { id: "price" },
+      "R",
+      props.price
     ),
     _react2.default.createElement(
-      "button",
-      { className: "button", onClick: function onClick(e) {
-          return props.onClick(e, props.id);
-        } },
-      "Remove"
+      "div",
+      { "class": "dateandremove" },
+      _react2.default.createElement(
+        "button",
+        { className: "button", onClick: function onClick(e) {
+            return props.onClick(e, props.id);
+          } },
+        "Remove"
+      ),
+      _react2.default.createElement(
+        "p",
+        { id: "date" },
+        "Date: ",
+        props.date
+      )
     )
   );
 };
@@ -80834,11 +80857,7 @@ var FormHandler = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(_InputFormUI2.default, { onClick: this.clickHandler })
-      );
+      return _react2.default.createElement(_InputFormUI2.default, { onClick: this.clickHandler });
     }
   }]);
 
@@ -80883,7 +80902,7 @@ var InputFormUI = function InputFormUI(props) {
     _react2.default.createElement(
       "button",
       { className: "button button--large", onClick: props.onClick },
-      "Submit"
+      "Add Expense"
     )
   );
 };
@@ -81069,11 +81088,6 @@ var FilterUI = function (_React$Component) {
         "div",
         { className: "filterUI" },
         _react2.default.createElement(
-          "button",
-          { className: "showAll button", onClick: this.props.handleShowAll },
-          "Show All"
-        ),
-        _react2.default.createElement(
           "form",
           { className: "filterTag" },
           _react2.default.createElement(
@@ -81097,6 +81111,11 @@ var FilterUI = function (_React$Component) {
             "Search By Description"
           ),
           _react2.default.createElement(_DateSelector2.default, { input: this.props.input, filterViewState: this.props.filterViewState })
+        ),
+        _react2.default.createElement(
+          "button",
+          { className: "showAll button", onClick: this.props.handleShowAll },
+          "Show All"
         )
       );
     }
@@ -109038,7 +109057,7 @@ exports = module.exports = __webpack_require__(106)(false);
 
 
 // module
-exports.push([module.i, "*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit; }\n\nhtml {\n  font-size: 62.5%;\n  background-color: rgba(100, 100, 100, 0.8); }\n\nbody {\n  box-sizing: border-box; }\n\n.button {\n  background-color: #597795;\n  box-shadow: 0.3rem 0.3rem 1rem #222222;\n  color: white;\n  border: none;\n  font-size: 1.5rem;\n  border-radius: .5rem;\n  padding: .7rem .5rem;\n  font-weight: 500; }\n  .button:hover {\n    cursor: pointer; }\n  .button:focus {\n    outline: 0; }\n  .button:active {\n    box-shadow: none;\n    transform: translate(3%, 3%); }\n\n.button--large {\n  position: absolute;\n  right: 3%;\n  top: 1.5rem;\n  font-size: 2.5rem;\n  margin-top: .3rem;\n  margin-bottom: 2rem;\n  padding: 0 3rem; }\n\n.filterAndSort {\n  width: 25%;\n  border-radius: 5px;\n  margin-left: 1.5rem;\n  position: fixed;\n  top: 13vh;\n  background-color: #334455;\n  height: 87vh; }\n  .filterAndSort .showAll {\n    font-size: 2rem;\n    margin: 1rem;\n    padding: 1rem 10rem;\n    position: relative;\n    left: 50%;\n    transform: translateX(-55%); }\n  .filterAndSort .filterTag {\n    margin-top: 1rem;\n    border-radius: 5px;\n    font-size: 2rem;\n    text-align: center; }\n  .filterAndSort input {\n    margin-top: 10rem; }\n  .filterAndSort .searchBoxDescription {\n    width: 90%;\n    margin-left: 5%;\n    font-size: 2rem;\n    margin-top: 4rem;\n    margin-bottom: 1rem; }\n  .filterAndSort .searchBoxButton {\n    position: relative;\n    left: 50%;\n    transform: translate(-50%); }\n  .filterAndSort .DateInput_input {\n    margin: 1rem .5rem;\n    margin-top: 5rem !important; }\n  .filterAndSort .DateRangePickerInput_arrow {\n    margin-top: 4rem;\n    padding-left: .3rem; }\n  .filterAndSort .dateRangeButton {\n    margin-top: 1rem;\n    position: relative;\n    left: 50%;\n    transform: translateX(-50%);\n    padding: 1rem 2rem; }\n  .filterAndSort .sort {\n    position: relative;\n    top: 5%; }\n    .filterAndSort .sort select {\n      font-size: 2rem;\n      margin: .5rem; }\n    .filterAndSort .sort input {\n      margin: .5rem; }\n    .filterAndSort .sort label {\n      color: white;\n      font-size: 1.3rem; }\n    .filterAndSort .sort button {\n      position: relative;\n      padding: .5rem 2rem;\n      margin-top: 1rem;\n      left: 50%;\n      transform: translateX(-50%); }\n\n.DateRangePicker_picker {\n  top: -10rem !important;\n  z-index: 100; }\n\n.entryContainer {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 13.5%;\n  left: 27%;\n  width: 50%;\n  z-index: -1; }\n\n.inputField__main {\n  padding: 1.5rem;\n  padding-bottom: 1.5rem;\n  position: fixed;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.8);\n  z-index: 2; }\n\n.inputField input {\n  font-size: 1.3rem;\n  box-shadow: 1px 1px 4px #222222;\n  border: 3px #7591ac solid;\n  border-radius: 3px;\n  padding: 8px;\n  background-color: #f4f7f9;\n  text-align: center; }\n  .inputField input:focus {\n    outline: none;\n    border: 4px #597795 solid; }\n\n.inputField__main input {\n  width: 30%;\n  margin-top: 0; }\n\n.DateRangePickerInput, .DateInput {\n  background: #334455;\n  border: 0px; }\n\n.DateRangePickerInput_arrow_svg {\n  margin-left: 8px;\n  fill: white; }\n\n#dateSelector {\n  border: none; }\n\n#amountInput {\n  width: 83px; }\n\n#dateInput {\n  width: 15%; }\n\n.inputField select {\n  font-size: 20px;\n  border-radius: 3px;\n  color: #334455;\n  text-align: center;\n  background-color: #f4f7f9; }\n\n.entry {\n  display: inline-block;\n  background-color: #b5c4d2;\n  width: 90%;\n  height: 70px;\n  margin-bottom: 10px;\n  font-size: 1.6rem;\n  font-weight: 700;\n  font-family: sans-serif;\n  box-shadow: 1px 1px 1px #222;\n  z-index: 1 !important; }\n  .entry button {\n    position: relative;\n    visibility: hidden;\n    font-size: 1.6rem;\n    border-radius: 20%;\n    bottom: 30px;\n    right: 30px;\n    background-color: #990000;\n    float: right; }\n  .entry:hover button {\n    visibility: visible; }\n\n.entry p {\n  float: left;\n  position: relative;\n  margin: 0px 2px;\n  padding: 0px 2px;\n  border-radius: 10px; }\n\n#tag {\n  font-size: 1.5rem;\n  border: 1px white solid;\n  padding: 2px;\n  margin-top: 0px;\n  width: 100px;\n  text-align: center;\n  background-color: #334455;\n  color: white;\n  clear: both;\n  left: 20px;\n  bottom: 8px; }\n\n#description {\n  padding-left: 15px;\n  left: 10px;\n  display: inline-block;\n  font-size: 25px; }\n\n#date {\n  margin-top: -8px;\n  margin-bottom: 0px;\n  top: 8px;\n  right: 25px;\n  float: right; }\n\n#price {\n  width: 150px;\n  float: right;\n  font-size: 30px; }\n\n.VictoryContainer svg {\n  position: fixed;\n  top: 15%;\n  height: 200px !important;\n  width: 100px;\n  right: -48.5rem;\n  z-index: -1; }\n\n#total {\n  position: fixed;\n  top: 80%;\n  right: 6%;\n  color: white; }\n", ""]);
+exports.push([module.i, "*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit; }\n\nhtml {\n  font-size: 62.5%;\n  background-color: rgba(100, 100, 100, 0.8); }\n\nbody {\n  box-sizing: border-box; }\n\n.button {\n  background-color: #597795;\n  box-shadow: 0.3rem 0.3rem 1rem #222222;\n  color: white;\n  border: none;\n  font-size: 1.5rem;\n  border-radius: .5rem;\n  padding: .7rem .5rem;\n  font-weight: 500; }\n  .button:hover {\n    cursor: pointer; }\n  .button:focus {\n    outline: 0; }\n  .button:active {\n    box-shadow: none; }\n\n.filterAndSort {\n  color: #fff;\n  width: 25%;\n  position: fixed;\n  top: 0px;\n  background-color: #334455;\n  height: 100%; }\n  .filterAndSort h1 {\n    color: white;\n    font-family: sans-serif;\n    margin-top: 30px;\n    margin-bottom: 0px;\n    text-align: center; }\n  .filterAndSort #filter {\n    height: 50px;\n    z-index: 2; }\n    .filterAndSort #filter #filter-button {\n      cursor: pointer;\n      margin-top: 30px;\n      width: 100%;\n      color: white;\n      background-color: #330044;\n      font-size: 20px;\n      padding: 10px 0px;\n      text-align: center; }\n    .filterAndSort #filter .bcontainer {\n      z-index: 2;\n      transition: transform .5s;\n      transform: scale(1, 0);\n      transform-origin: top;\n      background-color: #110011; }\n      .filterAndSort #filter .bcontainer .filterTag {\n        width: 100%;\n        padding: 10px 0px;\n        text-align: center; }\n        .filterAndSort #filter .bcontainer .filterTag select {\n          width: 100%;\n          font-size: 2rem;\n          padding: 10px 0px; }\n      .filterAndSort #filter .bcontainer .searchBoxDescription {\n        width: 100%;\n        margin: 10px 0px;\n        font-size: 2rem; }\n      .filterAndSort #filter .bcontainer .searchBoxButton {\n        position: relative;\n        left: 50%;\n        transform: translate(-50%);\n        padding: 10px 20px; }\n      .filterAndSort #filter .bcontainer .DateInput_input {\n        margin: 1rem .5rem;\n        margin-top: 30px; }\n      .filterAndSort #filter .bcontainer .DateRangePickerInput_arrow {\n        margin-top: 20px;\n        padding-left: .3rem; }\n      .filterAndSort #filter .bcontainer .dateRangeButton {\n        margin-top: 1rem;\n        position: relative;\n        left: 50%;\n        transform: translateX(-50%);\n        padding: 1rem 2rem; }\n      .filterAndSort #filter .bcontainer .inputField__main input {\n        width: 30%;\n        margin-top: 0; }\n      .filterAndSort #filter .bcontainer .DateRangePickerInput, .filterAndSort #filter .bcontainer .DateInput {\n        background: #110011;\n        border: 0px; }\n      .filterAndSort #filter .bcontainer .DateRangePickerInput_arrow_svg {\n        margin-left: 8px;\n        fill: white; }\n      .filterAndSort #filter .bcontainer .DateRangePicker_picker {\n        top: -10rem !important;\n        z-index: 100; }\n      .filterAndSort #filter .bcontainer #dateSelector {\n        border: none; }\n      .filterAndSort #filter .bcontainer .showAll {\n        border-radius: 0;\n        font-size: 2rem;\n        margin-top: 30px;\n        padding: 1rem 10rem;\n        position: relative;\n        width: 100%;\n        background-color: #a00033;\n        box-shadow: none; }\n        .filterAndSort #filter .bcontainer .showAll:active {\n          font-size: 1.9rem; }\n    .filterAndSort #filter.active .bcontainer {\n      transition: transform .5s;\n      transform: scale(1); }\n  .filterAndSort #sort {\n    top: 5%;\n    color: white; }\n    .filterAndSort #sort #sort-button {\n      margin-top: 20px;\n      cursor: pointer;\n      width: 100%;\n      color: white;\n      background-color: #00aaaa;\n      font-size: 20px;\n      padding: 10px 0px;\n      text-align: center; }\n    .filterAndSort #sort .sort {\n      padding: 20px 0px;\n      background-color: #006688;\n      transition: transform .5s;\n      transform: scale(1, 0);\n      transform-origin: top; }\n      .filterAndSort #sort .sort label {\n        color: white;\n        font-size: 1.4rem; }\n      .filterAndSort #sort .sort select {\n        font-size: 1.8rem;\n        margin: .5rem; }\n      .filterAndSort #sort .sort input {\n        margin: .5rem; }\n      .filterAndSort #sort .sort button {\n        position: relative;\n        padding: .5rem 2rem;\n        margin-top: 1rem;\n        left: 50%;\n        transform: translateX(-50%); }\n    .filterAndSort #sort.active .sort {\n      transition: transform .5s;\n      transform: scale(1); }\n\n.entryContainer {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 17.5%;\n  left: 27%;\n  width: 70%; }\n\n.inputField__main {\n  padding: 1.5rem;\n  padding-bottom: 1.5rem;\n  position: fixed;\n  right: 0px;\n  width: 75%;\n  height: 90px;\n  background-color: #24303c;\n  z-index: 2; }\n\n.inputField input {\n  font-size: 1.3rem;\n  border-radius: 3px;\n  padding: 8px;\n  background-color: #f4f7f9;\n  margin-left: 10px;\n  margin-top: 10px; }\n  .inputField input:focus {\n    outline: none;\n    border: 4px #597795 solid; }\n\n.inputField select {\n  font-size: 20px;\n  border-radius: 3px;\n  color: #334455;\n  text-align: center;\n  background-color: #f4f7f9; }\n\n#amountInput {\n  width: 83px; }\n\n#dateInput {\n  width: 15%; }\n\n.button--large {\n  position: absolute;\n  right: 10%;\n  top: 1.5rem;\n  width: 200px;\n  padding: 30px;\n  height: 40px;\n  font-size: 2rem;\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  padding: 0 3rem; }\n\n.entry {\n  display: flex;\n  justify-content: space-between;\n  background-color: #b5c4d2;\n  width: 100%;\n  height: 70px;\n  margin-bottom: 10px;\n  font-size: 1.6rem;\n  font-weight: 700;\n  font-family: sans-serif;\n  box-shadow: 1px 1px 1px #222;\n  z-index: 1 !important; }\n  .entry button {\n    position: relative;\n    font-size: 1.3rem;\n    align-self: flex-end;\n    border-radius: 0px;\n    background-color: #ff0033;\n    height: 40px;\n    box-shadow: none;\n    margin-right: -1px; }\n\n.entry p {\n  float: left;\n  position: relative;\n  margin: 0px 2px;\n  padding: 0px 2px;\n  border-radius: 10px; }\n\n#tag {\n  font-size: 1.5rem;\n  border: 1px white solid;\n  padding: 2px;\n  margin-top: 0px;\n  width: 100px;\n  height: 30px;\n  align-self: center;\n  text-align: center;\n  background-color: #334455;\n  color: white;\n  clear: both; }\n\n#description {\n  align-self: center;\n  padding-left: 15px;\n  width: 300px;\n  left: 10px;\n  display: inline-block;\n  font-size: 25px; }\n\n#date {\n  align-self: flex-end; }\n\n#price {\n  width: 150px;\n  margin-left: 40px;\n  align-self: center;\n  float: right;\n  font-size: 30px; }\n\n.dateandremove {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n.VictoryContainer svg {\n  position: relative;\n  margin-top: -100px;\n  height: 300px !important;\n  padding-left: 60px;\n  width: 100px;\n  left: -30px;\n  z-index: 0; }\n\n.VictoryContainer {\n  z-index: -100; }\n\n#total {\n  position: fixed;\n  top: 90%;\n  left: 7%;\n  color: white; }\n", ""]);
 
 // exports
 
@@ -109132,6 +109151,70 @@ exports.push([module.i, "/*!\n * Bootstrap v4.0.0 (https://getbootstrap.com)\n *
 
 // exports
 
+
+/***/ }),
+/* 1066 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Toggler = function (_React$Component) {
+    _inherits(Toggler, _React$Component);
+
+    function Toggler(props) {
+        _classCallCheck(this, Toggler);
+
+        return _possibleConstructorReturn(this, (Toggler.__proto__ || Object.getPrototypeOf(Toggler)).call(this, props));
+    }
+
+    _createClass(Toggler, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var id2 = this.props.id2 ? this.props.id2 : this.props.id;
+            var active = this.props.active ? this.props.active : "active";
+            document.getElementById(this.props.id).addEventListener("click", function () {
+                var id2Node = document.getElementById(id2);
+                if (id2Node.classList.contains(active)) {
+                    id2Node.classList.remove(active);
+                } else {
+                    id2Node.classList.add(active);
+                }
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { id: this.props.id },
+                this.props.content
+            );
+        }
+    }]);
+
+    return Toggler;
+}(_react2.default.Component);
+
+exports.default = Toggler;
 
 /***/ })
 /******/ ]);

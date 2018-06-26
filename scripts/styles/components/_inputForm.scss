@@ -3,50 +3,24 @@
     padding: 1.5rem;
     padding-bottom: 1.5rem;
     position: fixed;
-    width: 100%;
-    background-color: rgba(0,0,0,.8);
+    right: 0px;
+    width: 75%;
+    height: 90px;
+    background-color: darken($contBack, 8);
     z-index: 2;
   }
   input{
     font-size: 1.3rem;
-    box-shadow: 1px 1px 4px $shadowColor;
-    // margin: 2rem .4rem;
-    border: 3px lighten($contBack, 30%) solid;
     border-radius: 3px;
     padding: 8px;
     background-color: lighten($contBack, 70%);
-    text-align: center;
+    margin-left: 10px;
+    margin-top: 10px;
     &:focus{
         outline: none;
         border: 4px lighten($contBack, 20%) solid;
     }
   }
-}
-.inputField__main input{
-  width: 30%;
-  margin-top: 0;
-}
-
-.DateRangePickerInput, .DateInput{
-  background: $contBack;
-  border: 0px;
-}
-
-.DateRangePickerInput_arrow_svg{
-  margin-left: 8px;
-  fill: white;
-}
-
-#dateSelector{
-  border: none;
-}
-
-#amountInput{
-  width: 83px;
-}
-
-#dateInput{
-  width: 15%;
 }
 
 .inputField select{
@@ -55,4 +29,24 @@
   color: $contBack;
   text-align: center;
   background-color: lighten($contBack, 70%)
+}
+#amountInput{
+  width: 83px;
+}
+
+#dateInput{
+  width: 15%;
+}
+
+.button--large{
+  position: absolute;
+  right: 10%;
+  top: 1.5rem;
+  width: 200px;
+  padding: 30px;
+  height: 40px;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 3rem;
 }

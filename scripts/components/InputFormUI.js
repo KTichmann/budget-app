@@ -14,7 +14,7 @@ const InputFormUI = (props) => {
           <input type="text" placeholder="Tag"></input>
           <input id="dateInput" type="date" defaultValue={setDate()}></input>
         </div>
-        <button className="button button--large" onClick={props.onClick}>Submit</button>
+        <button className="button button--large" onClick={props.onClick}>Add Expense</button>
       </form>
   )
 }

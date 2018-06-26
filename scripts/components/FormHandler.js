@@ -20,10 +20,6 @@ export default class FormHandler extends React.Component{
      }
   }
   render(){
-    return(
-      <div>
-        <InputFormUI onClick={this.clickHandler}/>
-      </div>
-    )
+    return <InputFormUI onClick={this.clickHandler}/>
   }
 }

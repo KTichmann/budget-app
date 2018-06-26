@@ -1,79 +1,158 @@
 .filterAndSort{
-  width: 25%;
-  border-radius: 5px;
-  margin-left: 1.5rem;
-  position: fixed;
-  top: 13vh;
-  background-color: $contBack;
-  height: 87vh;
-  .showAll{
-    font-size: 2rem;
-    margin: 1rem;
-    padding: 1rem 10rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-55%);
-  }
-  .filterTag{
-    margin-top: 1rem;
-    border-radius: 5px;
-    font-size: 2rem;
+  color: #fff;
+  h1{
+    color: white;
+    font-family: sans-serif;
+    margin-top: 30px;
+    margin-bottom: 0px;
     text-align: center;
   }
-  input{
-    margin-top: 10rem;
-  }
-  .searchBoxDescription{
-    width: 90%;
-    margin-left: 5%;
-    font-size: 2rem;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
-  }
-  .searchBoxButton{
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-  }
-  .DateInput_input{
-    margin: 1rem .5rem;
-    margin-top: 5rem !important;
-  }
-  .DateRangePickerInput_arrow{
-    margin-top: 4rem;
-    padding-left: .3rem;
-  }
-  .dateRangeButton{
-    margin-top: 1rem;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1rem 2rem;
-  }
-  .sort{
-    position: relative;
-    top: 5%;
-    select{
-      font-size: 2rem;
-      margin: .5rem;
-    }
-    input{
-      margin: .5rem;
-    }
-    label{
+  width: 25%;
+  position: fixed;
+  top: 0px;
+  background-color: $contBack;
+  height: 100%;
+  #filter{
+    height: 50px;
+    z-index: 2;
+    #filter-button{
+      cursor: pointer;
+      margin-top: 30px;
+      width: 100%;
       color: white;
-      font-size: 1.3rem;
+      background-color: #330044;
+      font-size: 20px;
+      padding: 10px 0px;
+      text-align: center;
     }
-    button{
-      position: relative;
-      padding: .5rem 2rem;
-      margin-top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
+    .bcontainer{
+      z-index: 2;
+      transition: transform .5s;
+      transform: scale(1, 0);
+      transform-origin: top;
+      background-color: #110011;
+      .filterTag{
+        select{
+          width: 100%;
+          font-size: 2rem;
+          padding: 10px 0px;
+        }
+        width: 100%;
+        padding: 10px 0px;
+        text-align: center;
+      }
+      .searchBoxDescription{
+        width: 100%;
+        margin: 10px 0px;
+        font-size: 2rem;
+      }
+      .searchBoxButton{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        padding: 10px 20px;
+      }
+      .DateInput_input{
+        margin: 1rem .5rem;
+        margin-top: 30px;
+      }
+      .DateRangePickerInput_arrow{
+        margin-top: 20px;
+        padding-left: .3rem;
+      }
+      .dateRangeButton{
+        margin-top: 1rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1rem 2rem;
+      }
+
+      .inputField__main input{
+          width: 30%;
+          margin-top: 0;
+      }
+
+      .DateRangePickerInput, .DateInput{
+          background: #110011;
+          border: 0px;
+      }
+
+      .DateRangePickerInput_arrow_svg{
+        margin-left: 8px;
+        fill: white;
+      }
+      .DateRangePicker_picker{
+        top: -10rem !important;
+        z-index: 100;
+      }
+      #dateSelector{
+        border: none;
+      }
+      .showAll{
+        border-radius: 0;
+        font-size: 2rem;
+        margin-top: 30px;
+        padding: 1rem 10rem;
+        position: relative;
+        width: 100%;
+        background-color: #a00033;
+        box-shadow: none;
+        &:active{
+          font-size: 1.9rem;
+        }     
+      }
+    }
+    &.active{
+      .bcontainer{
+        transition: transform .5s;
+        transform: scale(1);
+      }
     }
   }
-}
-.DateRangePicker_picker{
-  top: -10rem !important;
-  z-index: 100;
+  #sort{
+    top: 5%;
+    color: white;
+    #sort-button{
+      margin-top: 20px;
+      cursor: pointer;
+      width: 100%;
+      color: white;
+      background-color: #00aaaa;
+      font-size: 20px;
+      padding: 10px 0px;
+      text-align: center;
+    }
+    .sort{
+      padding: 20px 0px;
+      background-color: #006688;
+      transition: transform .5s;
+      transform: scale(1, 0);
+      transform-origin: top;
+      label{
+        color: white;
+        font-size: 1.4rem;
+      }
+      select{
+        font-size: 1.8rem;
+        margin: .5rem;
+      }
+      input{
+        margin: .5rem;
+      }
+      button{
+        position: relative;
+        padding: .5rem 2rem;
+        margin-top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &.active{
+      .sort{
+        transition: transform .5s;
+        transform: scale(1);
+      }
+    }
+  }
 }

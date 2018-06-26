@@ -4,7 +4,8 @@ import FormHandler from "./FormHandler";
 import FilterHandler from "./FilterHandler";
 import SortHandler from "./SortHandler";
 import Total from "./Total";
-import BarChartHandler from "./BarChartHandler"
+import BarChartHandler from "./BarChartHandler";
+import Toggler from "./Toggler";
 
 export default class BudgetApp extends React.Component {
   constructor(props){
@@ -77,12 +78,19 @@ export default class BudgetApp extends React.Component {
           <FormHandler id={this.state.count} addInput={this.addInputToState} onClick={this.onClick}/>
         </div>
         <div className="filterAndSort">
-          <FilterHandler input={this.state.input} filterState={this.updateViewState}/>
-          <SortHandler updateViewState={this.updateViewState} view={this.state.view}/>
-        </div>
+          <h1>Budget App</h1>
+          <div id="filter">
+            <Toggler content="Filter" id="filter-button" id2="filter" />
+            <FilterHandler input={this.state.input} filterState={this.updateViewState}/>
+          </div>
+          <div id="sort">
+            <Toggler content="Sort" id="sort-button" id2="sort" />
+            <SortHandler updateViewState={this.updateViewState} view={this.state.view}/>
+          </div>
           <BarChartHandler data={this.state.view}/>
+        </div>
           <EntryHandler view={this.state.view} removeInput={this.removeInputFromState}/>
-        <Total inputArr={this.state.view}/>
+          <Total inputArr={this.state.view}/>
       </div>
     )
   }

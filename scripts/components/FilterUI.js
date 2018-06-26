@@ -23,7 +23,6 @@ export default class FilterUI extends React.Component{
   }
   render(){return(
     <div className="filterUI">
-      <button className="showAll button" onClick={this.props.handleShowAll}>Show All</button>
       <form className="filterTag">
         <select onChange={this.props.handleFilter}>
           {this.handleTagSelector()}
@@ -37,6 +36,7 @@ export default class FilterUI extends React.Component{
           <button className="searchBoxButton button" onClick ={this.props.handleSearch}>Search By Description</button>
           <DateSelector input={this.props.input} filterViewState={this.props.filterViewState}/>
       </form>
+      <button className="showAll button" onClick={this.props.handleShowAll}>Show All</button>
     </div>
   )}
 }
